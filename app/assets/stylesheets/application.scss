@@ -1,0 +1,164 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$color-white: #f1f1f1;
+$color-dark-gray: #323a45;
+$color-gray: #aeb0b5;
+$color-red: #e31c3d;
+$color-light-blue: #205493;
+$color-dark-blue: #1D4474;
+
+@font-face {
+  font-family: ClearSans;
+  font-style: normal;
+  font-weight: 400;
+  src: url('ClearSans-Regular.eot');
+  src: url('ClearSans-Regular.eot?iefix') format('embedded-opentype'),
+    url('ClearSans-Regular.ttf') format('truetype'),
+    url('ClearSans-Regular.woff') format('woff'),
+    url('ClearSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: ClearSans;
+  font-style: italic;
+  font-weight: 400;
+  src: url('ClearSans-Italic.eot');
+  src: url('ClearSans-Italic.eot?iefix') format('embedded-opentype'),
+    url('ClearSans-Italic.ttf') format('truetype'),
+    url('ClearSans-Italic.woff') format('woff'),
+    url('ClearSans-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: ClearSans;
+  font-style: bold;
+  font-weight: 700;
+  src: url('ClearSans-Bold.eot');
+  src: url('ClearSans-Bold.eot?iefix') format('embedded-opentype'),
+    url('ClearSans-Bold.ttf') format('truetype'),
+    url('ClearSans-Bold.woff') format('woff'),
+    url('ClearSans-Bold.woff2') format('woff2');
+}
+
+html {
+  box-sizing: border-box
+}
+
+*, :after, :before {
+  box-sizing: inherit
+}
+
+body, html {
+  font-family: 'ClearSans', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 17px;
+  line-height: 1.5;
+  color: $color-dark-gray;
+}
+
+p {
+  line-height: 24px;
+  margin-bottom: 1em;
+  margin-top: 1em
+}
+
+a {
+  color: #0071bc
+}
+
+a:active, a:hover {
+  color: $color-light-blue;
+}
+
+a:visited {
+  color: #4c2c92;
+}
+
+h1, h2 {
+  color: $color-light-blue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-bottom: 1em;
+}
+
+h3, h4, h5, h6 {
+  margin-top: 1.5em;
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  padding-top: 0
+}
+
+h1 {
+  font-size: 40px;
+  margin-top: 0
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3, h4 {
+  font-size: 20px
+}
+
+h5 {
+  font-weight: 400;
+  text-transform: uppercase
+}
+
+h5, p {
+  font-size: 17px
+}
+
+p {
+  margin-bottom: 20px
+}
+
+a {
+  text-decoration: underline
+}
+
+ol, ul {
+  list-style: initial;
+  display: block;
+  padding-left: 0;
+  margin: 20px 0 20px 20px
+}
+
+ol {
+  list-style-type: decimal
+}
+
+ul {
+  list-style-type: disc
+}
+
+li {
+  margin-top: 0;
+  margin-bottom: 10px
+}
+
+li:after, li:before {
+  content: '';
+  display: none
+}
