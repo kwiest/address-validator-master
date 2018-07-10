@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lob.com/v1/us_verifications
+    body:
+      encoding: UTF-8
+      string: primary_line=undeliverable+no+match&city=Eugene&state=OR&zip_code=97401
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/5.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic dGVzdF9kNGQ5YzdiODY2MjZhN2VkYTk4NDMxNTEzNDE4ZDM0MGFkNzo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 10 Jul 2018 16:47:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALB=8fIRe5JrKNo4fuM8u+5a024r1qIhbDblrQVfGo9xHb7LSughH0O+IR9lo8LoSwYJRvhgySAifvr1WpKCClE2IA4P80ADJLoOiMctEVw3cJUnbKZvQv2clWESF9n6;
+        Expires=Tue, 17 Jul 2018 16:47:39 GMT; Path=/
+      X-Rate-Limit-Remaining:
+      - '299'
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Reset:
+      - '1531241264'
+      Vary:
+      - origin,accept-encoding
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA41Uy27bMBC85ysEnXuQWzu2e1NtBQiK2oBkFAiKgqBEyt2CIgU+3DhB/r0UbSmUwj503Bnuzs7u6vkmsl8MJP4YxUahE5WoWr1PlsvVcrH6kMzXi1u8qtbxuwtR0gpaoFx3/ENWHKLP2UMRbffRbn+Ivmb5/d1DlG63eVYUWdG/aiU0WJ4RA067h31c0UpwEkKMLDGHJ6xBcD/OsNIDuUh30V2e7jb3xWYfbdJoPZ8ly55KKAPbDi6BgT67/vgQY7SnVaJpBbcdKUt5drGRZm6akkpPw0W5lpRq1EpKwHoykelTOG6c2E9Znj8EcGXqGh5dO4c8yw6hKkLpP5cZPCRUwZFjLd6qHTjhbtqm/MvrDg2/o49aYvQ/CqbMcL7qOqjRYMeGYO3c3KR++AlaVAniEH8HRiBqmV3w+bTmAOtz6xLYGp1G4pOue3O2owCuUYllX85nYUIkVWrI5GN2ekKSIERojQ2zWQ0wAvyIrnksr8ZMUd8gYfg/LLpQUA1tlyBObpPlYoRjKcFeuRRGv5EyAoNimT1JbVzv3DDmI4IffcghL8FjRJhjdlYwOTnSnuwoeA2ymR7+K95IHIqfcIUvf6UpUguhudC0K/ZtgByczjyyi3yZxUPgu7+/vxSyoqofgaEwXCkEnEDVb/4unsKSaiP5sKRJMtpqA9btCSUe+SfKn/b8X3/SUHfVOo9uXn4DSkfs4MQFAAA=
+    http_version: 
+  recorded_at: Tue, 10 Jul 2018 16:47:39 GMT
+recorded_with: VCR 4.0.0

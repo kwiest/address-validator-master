@@ -32,11 +32,14 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'lob', '~> 5.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'vcr', '~> 4.0'
   gem 'dotenv', '~> 2.5'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
@@ -45,6 +48,7 @@ group :development, :test do
   gem 'factory_bot', '~> 4.0'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'shoulda-matchers'
+  gem 'webmock', '~> 3.4', '>= 3.4.2'
 end
 
 group :development do
