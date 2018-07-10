@@ -39,12 +39,12 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'dotenv', '~> 2.5'
   gem 'selenium-webdriver'
-  gem 'rspec'
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
-  gem "factory_bot", "~> 4.0"
-  gem "factory_bot_rails", "~> 4.0"
+  gem 'factory_bot', '~> 4.0'
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers'
 end
 
 group :development do
