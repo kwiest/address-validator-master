@@ -3,6 +3,10 @@ class AddressesController < ApplicationController
     render 'new'
   end
 
+  def show
+    @address = Address.find(params[:id])
+  end
+
   def new
     @address_verification = AddressVerification.new
   end
