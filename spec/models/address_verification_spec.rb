@@ -23,17 +23,15 @@ RSpec.describe AddressVerification, type: :model do
     end
   end
 
-  describe '#verify!' do
-    it 'should raise an exception if the address is not valid' do
-      invalid_address = AddressVerification.new
-      expect{ invalid_address.verify! }.to raise_error(AddressVerification::VerificationError)
+  describe '#save' do
+    it 'should not attempt to verify an invalid address' do
+      invalid = AddressVerification.new
+      expect(invalid).not_to receive(:verify) { invalid.save }
     end
-  end
 
-  describe '#deliverable?' do
     it 'should have deliverable addresses' do
       VCR.use_cassette :lob_deliverable_verification do
-        address.verify!
+        expect(address.save).to be(true)
         expect(address.deliverable?).to be(true)
       end
     end
@@ -41,8 +39,8 @@ RSpec.describe AddressVerification, type: :model do
     it 'should have undeliverable addresses' do
       VCR.use_cassette :lob_undeliverable_verification do
         address.street_address = 'undeliverable no match'
-        address.verify!
-        expect(address.deliverable?).to be(false)
+        expect(address.save).to be(false)
+        expect(address.errors.full_messages).to include('Street address is not a deliverable address')
       end
     end
   end
@@ -64,7 +62,7 @@ RSpec.describe AddressVerification, type: :model do
         zip_4: '2525'
       }
       VCR.use_cassette :lob_deliverable_verification do
-        address.verify!
+        address.save
         expect(address.to_address_params).to eq(expected_params)
       end
     end

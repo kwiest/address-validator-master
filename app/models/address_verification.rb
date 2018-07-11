@@ -13,14 +13,13 @@ class AddressVerification
     numericality: true,
     length: { is: 5 }
 
-  def verify!
-    raise VerificationError.new('Cannot verify an invalid address') unless valid?
-    @verification = lob_client.us_verifications.verify(
-      primary_line: street_address,
-      city: city,
-      state: state,
-      zip_code: zip_code
-    )
+  define_model_callbacks :save
+  before_save :validate_deliverability
+
+  def save
+    return false unless valid?
+    run_callbacks :save
+    errors.empty?
   end
 
   def deliverable?
@@ -50,4 +49,19 @@ class AddressVerification
   def lob_client
     @lob_client ||= Lob::Client.new(api_key: ENV['LOB_SECRET_API_KEY'])
   end
+
+  def verify
+    @verification = lob_client.us_verifications.verify(
+      primary_line: street_address,
+      city: city,
+      state: state,
+      zip_code: zip_code
+    )
+  end
+
+  def validate_deliverability
+    verify
+    errors.add(:street_address, :invalid, message: 'is not a deliverable address') unless deliverable?
+  end
+
 end
