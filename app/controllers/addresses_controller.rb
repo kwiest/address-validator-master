@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   def index
+    @address_verification = AddressVerification.new
     render 'new'
   end
 
