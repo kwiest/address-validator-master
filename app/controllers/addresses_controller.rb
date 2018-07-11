@@ -8,15 +8,20 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(address_params)
-    @address.save
+    @address_verification = AddressVerification.new(address_verification_params)
 
-    render 'new'
+    if @address_verification.save
+      @address = Address.create(@address_verification.to_address_params)
+      redirect_to @address, notice: 'Address successfully validated!'
+    else
+      render 'new'
+    end
   end
 
   private
 
-  def address_params
-    params.permit(:city, :state)
+  def address_verification_params
+    params.require(:address_verification)
+      .permit(:street_address, :city, :state, :zip_code)
   end
 end
