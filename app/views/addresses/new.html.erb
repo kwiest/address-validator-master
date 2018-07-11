@@ -1,27 +1,27 @@
 <h1>Address Validator</h1>
 
-<%= form_tag '/addresses', method: :post do %>
-    <div>
-      <%= label_tag :street_address %>
-      <%= text_field_tag :street_address%>
-    </div>
+<%= form_for @address_verification, url: addresses_path do |f| %>
+  <div>
+    <%= f.label :street_address %>
+    <%= f.text_field :street_address %>
+  </div>
 
-    <div>
-      <%= label_tag :city %>
-      <%= text_field_tag :city%>
-    </div>
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
 
-    <div>
-      <%= label_tag :state %>
-      <%= text_field_tag :state%>
-    </div>
+  <div>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
 
-    <div>
-      <%= label_tag :zip_code %>
-      <%= text_field_tag :zip_code%>
-    </div>
+  <div>
+    <%= f.label :zip_code %>
+    <%= f.text_field :zip_code %>
+  </div>
 
-    <div class = "buttons">
-      <%= submit_tag 'Validate Address' %>
-    </div>
+  <div class = "buttons">
+    <%= f.submit 'Validate Address' %>
+  </div>
 <% end %>
