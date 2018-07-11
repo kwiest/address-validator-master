@@ -1,0 +1,94 @@
+@import 'colors';
+
+form {
+  width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color: #fff;
+
+  .form-title {
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    background-color: $color-light-blue;
+    text-align: center;
+
+    h2 {
+      color: $color-white;
+      font-size: 1.7rem;
+    }
+  }
+
+  .form-body {
+    padding: 40px;
+
+    .form-control {
+      margin-bottom: 12px;
+    }
+
+    label {
+      em {
+        font-style: normal;
+        color: $color-red;
+      }
+    }
+
+    .form-errors {
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      border: 1px solid $color-red;
+      border-radius: 4px;
+
+      h3 {
+        color: $color-red;
+        margin: 0;
+      }
+    }
+  }
+}
+
+input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="file"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea,
+select {
+  border: 1px solid #5b616b;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 17px;
+  margin: .2em 0;
+  max-width: 46rem;
+  width: 100%;
+  outline: none;
+  padding: 1rem .7em;
+  appearance: none;
+}
+
+select {
+  height: 54px;
+  padding: 0.7rem 1.1rem;
+  background-color: #fff;
+}
+
+input[type="submit"] {
+  margin-top: 18px;
+  background-color: $color-red;
+  border: none;
+  color: $color-white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}

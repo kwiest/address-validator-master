@@ -14,12 +14,7 @@
  *= require_self
  */
 
-$color-white: #f1f1f1;
-$color-dark-gray: #323a45;
-$color-gray: #aeb0b5;
-$color-red: #e31c3d;
-$color-light-blue: #205493;
-$color-dark-blue: #1D4474;
+ @import 'colors';
 
 @font-face {
   font-family: ClearSans;
@@ -63,6 +58,7 @@ html {
 }
 
 body, html {
+  background-color: $color-dark-blue;
   font-family: 'ClearSans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }

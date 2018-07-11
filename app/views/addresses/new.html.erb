@@ -1,41 +1,47 @@
-<h1>Address Validator</h1>
-
 <%= form_for @address_verification, url: addresses_path do |f| %>
-  <% if @address_verification.errors.any? %>
-    <div class="form-errors">
-      <h3 class="error-heading">
-        <%= pluralize(@address_verification.errors.count, 'error') %>
-        prevented this form from being saved:
-      </h3>
-      <ul>
-        <% @address_verification.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="form-title">
+    <h2>Address Validator<h2>
+  </div>
+
+  <div class="form-body">
+    <% if @address_verification.errors.any? %>
+      <div class="form-errors">
+        <h3 class="error-heading">
+          <%= pluralize(@address_verification.errors.count, 'error') %>
+          prevented this form from being saved:
+        </h3>
+        <ul>
+          <% @address_verification.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-control">
+      <%= f.label :street_address, 'Street address <em>*</em>'.html_safe %>
+      <%= f.text_field :street_address %>
     </div>
-  <% end %>
 
-  <div>
-    <%= f.label :street_address %>
-    <%= f.text_field :street_address %>
-  </div>
+    <div class="form-control">
+      <span id="address-city">
+        <%= f.label :city, 'City <em>*</em>'.html_safe %>
+        <%= f.text_field :city %>
+      </span>
 
-  <div>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-  </div>
+      <span id="address-state">
+        <%= f.label :state, 'State <em>*</em>'.html_safe %>
+        <%= f.select :state, state_abbreviations %>
+      </span>
 
-  <div>
-    <%= f.label :state %>
-    <%= f.select :state, state_abbreviations %>
-  </div>
+      <span id="address-zip">
+        <%= f.label :zip_code, 'Zip <em>*</em>'.html_safe %>
+        <%= f.text_field :zip_code, size: 5 %>
+      </span>
+    </div>
 
-  <div>
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code %>
-  </div>
-
-  <div class = "buttons">
-    <%= f.submit 'Validate Address' %>
+    <div class = "buttons">
+      <%= f.submit 'Validate Address' %>
+    </div>
   </div>
 <% end %>
