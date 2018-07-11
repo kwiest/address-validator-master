@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AddressVerification, type: :model do
   let!(:address) {
     AddressVerification.new(
-      street_address: '275 W 10th Ave',
+      street_address: 'residential house',
       city: 'Eugene',
       state: 'OR',
       zip_code: '97401'
@@ -33,7 +33,6 @@ RSpec.describe AddressVerification, type: :model do
   describe '#deliverable?' do
     it 'should have deliverable addresses' do
       VCR.use_cassette :lob_deliverable_verification do
-        address.street_address = 'residential house'
         address.verify!
         expect(address.deliverable?).to be(true)
       end
@@ -44,6 +43,29 @@ RSpec.describe AddressVerification, type: :model do
         address.street_address = 'undeliverable no match'
         address.verify!
         expect(address.deliverable?).to be(false)
+      end
+    end
+  end
+
+  describe '#to_address_paramsq' do
+    it 'should build a hash to pass to Address' do
+      expected_params = {
+        house_number: '1709',
+        street_name: 'BRODERICK',
+        street_type: 'ST',
+        street_predirection: '',
+        street_postdirection: '',
+        unit_number: '',
+        unit_type: '',
+        city: 'SAN FRANCISCO',
+        state: 'CA',
+        county: 'SAN FRANCISCO',
+        zip_5: '94115',
+        zip_4: '2525'
+      }
+      VCR.use_cassette :lob_deliverable_verification do
+        address.verify!
+        expect(address.to_address_params).to eq(expected_params)
       end
     end
   end

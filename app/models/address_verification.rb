@@ -27,6 +27,23 @@ class AddressVerification
     verification['deliverability'] == 'deliverable'
   end
 
+  def to_address_params
+    {
+      house_number: verification['components']['primary_number'],
+      street_name: verification['components']['street_name'],
+      street_type: verification['components']['street_suffix'],
+      street_predirection: verification['components']['street_predirection'],
+      street_postdirection: verification['components']['street_postdirection'],
+      unit_number: verification['components']['secondary_designator'],
+      unit_type: verification['components']['secondary_number'],
+      city: verification['components']['city'],
+      state: verification['components']['state'],
+      county: verification['components']['county'],
+      zip_5: verification['components']['zip_code'],
+      zip_4: verification['components']['zip_code_plus_4']
+    }
+  end
+
 
   private
 
