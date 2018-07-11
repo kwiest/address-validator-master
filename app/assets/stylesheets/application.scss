@@ -158,3 +158,20 @@ li:after, li:before {
   content: '';
   display: none
 }
+
+header {
+  background-color: #fff;
+  margin: -8px -8px 40px;
+  padding: 12px 60px;
+
+  .vdo-logo {
+    img {
+      margin-right: 12px;
+    }
+
+    h1 {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+}
