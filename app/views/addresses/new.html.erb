@@ -1,6 +1,20 @@
 <h1>Address Validator</h1>
 
 <%= form_for @address_verification, url: addresses_path do |f| %>
+  <% if @address_verification.errors.any? %>
+    <div class="form-errors">
+      <h3 class="error-heading">
+        <%= pluralize(@address_verification.errors.count, 'error') %>
+        prevented this form from being saved:
+      </h3>
+      <ul>
+        <% @address_verification.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :street_address %>
     <%= f.text_field :street_address %>
